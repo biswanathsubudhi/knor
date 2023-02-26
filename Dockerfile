@@ -1,7 +1,7 @@
 FROM python:3.7.3-stretch
 
 RUN python3 -m venv ~/.devops
-RUN ~/.devops/bin/activate
+CMD ~/.devops/bin/activate
 ## Step 1:
 # Create a working directory
 WORKDIR /app
