@@ -1,7 +1,7 @@
 FROM python:3.7.3-stretch
 
 RUN python3 -m venv ~/.devops
-CMD ~/.devops/bin/activate
+RUN ~/.devops/bin/activate
 ## Step 1:
 # Create a working directory
 WORKDIR /app
@@ -13,9 +13,9 @@ COPY . /app/
 ## Step 3:
 # Install packages from requirements.txt
 # hadolint ignore=DL3013
-RUN ~/.devops/bin/activate/pip install --upgrade pip &&\
-    ~/.devops/bin/activate/pip install --upgrade setuptools &&\
-    ~/.devops/bin/activate/pip install -r requirements.txt
+RUN ~/.devops/bin/activate && pip install --upgrade pip &&\
+    ~/.devops/bin/activate && pip install --upgrade setuptools &&\
+    ~/.devops/bin/activate && pip install -r requirements.txt
 
 ## Step 4:
 # Expose port 80
