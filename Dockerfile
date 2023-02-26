@@ -13,9 +13,9 @@ COPY . /app/
 ## Step 3:
 # Install packages from requirements.txt
 # hadolint ignore=DL3013
-RUN ~/.devops/bin/pip install --upgrade pip &&\
-    ~/.devops/bin/pip install --upgrade setuptools &&\
-    ~/.devops/bin/pip install -r requirements.txt
+RUN ~/.devops/bin/activate/pip install --upgrade pip &&\
+    ~/.devops/bin/activate/pip install --upgrade setuptools &&\
+    ~/.devops/bin/activate/pip install -r requirements.txt
 
 ## Step 4:
 # Expose port 80
@@ -23,5 +23,4 @@ EXPOSE 80
 
 ## Step 5:
 # Run app.py at container launch
-CMD ["python", "app.py"]
-
+CMD ~/.devops/bin/activate && exec app.py
